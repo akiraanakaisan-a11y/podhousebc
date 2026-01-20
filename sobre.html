@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre - PodHouseBc</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f0f8ff;
+        }
+
+        header {
+            background: linear-gradient(135deg, #008B8B 0%, #00BCD4 50%, #FFD700 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+            max-width: 200px;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .cart-link {
+            position: relative;
+        }
+
+        #cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #FF9800;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .page-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin: 2rem 0;
+            color: #008B8B;
+            font-weight: bold;
+        }
+
+        .about-section {
+            background: white;
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin: 2rem 0;
+        }
+
+        .about-section h2 {
+            color: #00BCD4;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+
+        .about-section p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: #555;
+            text-align: justify;
+        }
+
+        .values {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .value-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .value-card h3 {
+            color: #008B8B;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #008B8B 0%, #00695C 100%);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .logo img {
+                height: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="logopodhouse.jpg" alt="PodHouseBc Logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="produtos.html">Produtos</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="contato.html">Contato</a></li>
+                <li><a href="carrinho.html" class="cart-link">
+                    🛒 Carrinho <span id="cart-count">0</span>
+                </a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1 class="page-title">Sobre a PodHouseBc</h1>
+
+        <div class="about-section">
+            <h2>Nossa História</h2>
+            <p>
+                A PodHouseBc nasceu da paixão por oferecer produtos de qualidade superior no mercado de pods. 
+                Fundada em 2025, nossa missão é proporcionar aos clientes uma experiência única, combinando 
+                tecnologia de ponta, design inovador e atendimento excepcional.
+            </p>
+            <p>
+                Começamos como uma pequena loja local e, graças à confiança de nossos clientes, crescemos 
+                para nos tornarmos uma referência no setor. Cada produto que vendemos passa por rigorosos 
+                testes de qualidade para garantir sua satisfação e segurança.
+            </p>
+        </div>
+
+        <div class="about-section">
+            <h2>Nossa Missão</h2>
+            <p>
+                Oferecer produtos de alta qualidade, com preços justos e um atendimento que supera expectativas. 
+                Acreditamos que cada cliente merece o melhor, e é por isso que nos dedicamos diariamente a 
+                melhorar nossos produtos e serviços.
+            </p>
+        </div>
+
+        <div class="about-section">
+            <h2>Nossa Visão</h2>
+            <p>
+                Ser a loja de pods mais confiável e inovadora do Brasil, reconhecida pela excelência em 
+                qualidade, inovação e compromisso com a satisfação do cliente.
+            </p>
+        </div>
+
+        <h2 class="page-title">Nossos Valores</h2>
+        <div class="values">
+            <div class="value-card">
+                <div class="value-icon">✨</div>
+                <h3>Qualidade</h3>
+                <p>Produtos testados e aprovados, garantindo a melhor experiência para nossos clientes.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">🤝</div>
+                <h3>Transparência</h3>
+                <p>Comunicação clara e honesta em todas as nossas relações comerciais.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">💡</div>
+                <h3>Inovação</h3>
+                <p>Sempre em busca das melhores tecnologias e tendências do mercado.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">❤️</div>
+                <h3>Compromisso</h3>
+                <p>Dedicação total à satisfação e bem-estar de nossos clientes.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 PodHouseBc. Todos os direitos reservados.</p>
+        <p>Desenvolvido com ❤️ para você</p>
+    </footer>
+    <script src="carrinho.js"></script>
+    <script>
+        carrinho.atualizarContador();
+    </script>
+</body>
+</html>

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Produto - PodHouseBc</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+            color: #00BCD4;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+
+        .back-link:active {
+            background: rgba(0, 188, 212, 0.1);
+        }
+
+        .product-page {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .product-image-container {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 300px;
+        }
+
+        .product-image-container img {
+            max-width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+        }
+
+        .product-info {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+
+        .product-destaque {
+            display: inline-block;
+            background: linear-gradient(135deg, #FFD700 0%, #FF9800 100%);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .product-title {
+            font-size: 24px;
+            color: #008B8B;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .product-capacity {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 16px;
+        }
+
+        .product-price {
+            font-size: 32px;
+            color: #FF9800;
+            font-weight: 700;
+            margin: 16px 0;
+        }
+
+        .selector-group {
+            margin: 20px 0;
+        }
+
+        .selector-group label {
+            display: block;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+
+        .selector {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 15px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.2s;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23008B8B' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            padding-right: 40px;
+            font-family: inherit;
+        }
+
+        .selector:focus {
+            outline: none;
+            border-color: #00BCD4;
+            box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.1);
+        }
+
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .quantity-btn {
+            width: 44px;
+            height: 44px;
+            border: 2px solid #00BCD4;
+            background: white;
+            color: #00BCD4;
+            border-radius: 10px;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+
+        .quantity-btn:active {
+            transform: scale(0.95);
+            background: #00BCD4;
+            color: white;
+        }
+
+        .quantity-input {
+            width: 80px;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: 600;
+            font-family: inherit;
+        }
+
+        .quantity-input:focus {
+            outline: none;
+            border-color: #00BCD4;
+            box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.1);
+        }
+
+        .btn-add-cart {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #00BCD4 0%, #20B2AA 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 16px rgba(0, 188, 212, 0.3);
+            margin-top: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-add-cart:active {
+            transform: scale(0.98);
+        }
+
+        @media (min-width: 768px) {
+            .product-page {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 32px;
+            }
+            
+            .product-title {
+                font-size: 32px;
+            }
+            
+            .product-price {
+                font-size: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <img src="logopodhouse.jpg" alt="PodHouseBc Logo">
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="produtos.html">Produtos</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                    <li>
+                        <a href="carrinho.html" class="cart-link">
+                            <span id="cart-icon"></span>
+                            <span id="cart-count">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <a href="produtos.html" class="back-link" id="back-link">
+            <span id="back-icon"></span>
+            Voltar para Produtos
+        </a>
+        
+        <div class="product-page">
+            <div class="product-image-container">
+                <img id="product-image" src="" alt="Produto">
+            </div>
+            
+            <div class="product-info">
+                <div id="product-destaque"></div>
+                <h1 id="product-title" class="product-title"></h1>
+                <p id="product-capacity" class="product-capacity"></p>
+                <p id="product-price" class="product-price"></p>
+                
+                <div class="selector-group">
+                    <label for="sabor-select">Escolha o Sabor:</label>
+                    <select id="sabor-select" class="selector">
+                        <option value="">Selecione um sabor</option>
+                    </select>
+                </div>
+                
+                <div class="selector-group">
+                    <label>Quantidade:</label>
+                    <div class="quantity-selector">
+                        <button class="quantity-btn" id="decrease-btn">
+                            <span id="minus-icon"></span>
+                        </button>
+                        <input type="number" id="quantity-input" class="quantity-input" value="1" min="1" max="10">
+                        <button class="quantity-btn" id="increase-btn">
+                            <span id="plus-icon"></span>
+                        </button>
+                    </div>
+                </div>
+                
+                <button class="btn-add-cart" id="add-to-cart-btn">
+                    <span id="cart-icon-btn"></span>
+                    Adicionar ao Carrinho
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 PodHouseBc. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="icons.js"></script>
+    <script src="toast.js"></script>
+    <script src="produtos-data.js"></script>
+    <script src="carrinho.js"></script>
+    <script>
+        // Inserir ícones
+        document.getElementById('back-icon').innerHTML = Icons.arrowLeft;
+        document.getElementById('cart-icon').innerHTML = Icons.cart;
+        document.getElementById('cart-icon-btn').innerHTML = Icons.cart;
+        document.getElementById('minus-icon').innerHTML = Icons.minus;
+        document.getElementById('plus-icon').innerHTML = Icons.plus;
+        
+        // Pegar o ID do produto da URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const produtoId = urlParams.get('id');
+
+        if (!produtoId || !produtosData[produtoId]) {
+            Toast.error('Produto não encontrado');
+            setTimeout(() => window.location.href = 'produtos.html', 2000);
+        }
+
+        const produto = produtosData[produtoId];
+
+        // Preencher informações do produto
+        document.getElementById('product-image').src = produto.imagem;
+        document.getElementById('product-image').alt = produto.nome;
+        document.getElementById('product-title').textContent = produto.nome;
+        document.getElementById('product-capacity').textContent = produto.capacidade ? `${produto.capacidade}` : '';
+        document.getElementById('product-price').textContent = `R$ ${produto.preco.toFixed(2).replace('.', ',')}`;
+
+        if (produto.destaque) {
+            const destaqueEl = document.createElement('div');
+            destaqueEl.className = 'product-destaque';
+            destaqueEl.textContent = produto.destaque;
+            document.getElementById('product-destaque').appendChild(destaqueEl);
+        }
+
+        // Preencher sabores
+        const saborSelect = document.getElementById('sabor-select');
+        produto.sabores.forEach(sabor => {
+            const option = document.createElement('option');
+            option.value = sabor;
+            option.textContent = sabor;
+            saborSelect.appendChild(option);
+        });
+
+        // Atualizar preço quando selecionar sabor
+        saborSelect.addEventListener('change', () => {
+            const sabor = saborSelect.value;
+            if (produto.saboresEspeciais && produto.saboresEspeciais[sabor]) {
+                document.getElementById('product-price').textContent = `R$ ${produto.saboresEspeciais[sabor].toFixed(2).replace('.', ',')}`;
+            } else {
+                document.getElementById('product-price').textContent = `R$ ${produto.preco.toFixed(2).replace('.', ',')}`;
+            }
+        });
+
+        // Controle de quantidade
+        const quantityInput = document.getElementById('quantity-input');
+        const decreaseBtn = document.getElementById('decrease-btn');
+        const increaseBtn = document.getElementById('increase-btn');
+
+        decreaseBtn.addEventListener('click', () => {
+            const current = parseInt(quantityInput.value);
+            if (current > 1) {
+                quantityInput.value = current - 1;
+            }
+        });
+
+        increaseBtn.addEventListener('click', () => {
+            const current = parseInt(quantityInput.value);
+            if (current < 10) {
+                quantityInput.value = current + 1;
+            }
+        });
+
+        quantityInput.addEventListener('change', () => {
+            const value = parseInt(quantityInput.value);
+            if (value < 1) quantityInput.value = 1;
+            if (value > 10) quantityInput.value = 10;
+        });
+
+        // Adicionar ao carrinho
+        document.getElementById('add-to-cart-btn').addEventListener('click', () => {
+            const sabor = saborSelect.value;
+            const quantidade = parseInt(quantityInput.value);
+
+            if (!sabor) {
+                Toast.error('Por favor, selecione um sabor!');
+                return;
+            }
+
+            // Verificar se o sabor tem preço especial
+            let preco = produto.preco;
+            if (produto.saboresEspeciais && produto.saboresEspeciais[sabor]) {
+                preco = produto.saboresEspeciais[sabor];
+            }
+
+            carrinho.adicionarItem(
+                produtoId,
+                sabor,
+                quantidade,
+                preco,
+                produto.nome,
+                produto.imagem
+            );
+
+            Toast.success(`${produto.nome} - ${sabor} adicionado ao carrinho!`);
+        });
+        
+        // Atualizar contador do carrinho
+        carrinho.atualizarContador();
+    </script>
+</body>
+</html>

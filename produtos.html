@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Produtos - PodHouseBc</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .page-title {
+            font-size: 28px;
+            color: #008B8B;
+            margin: 20px 0;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .category-section {
+            margin: 32px 0;
+        }
+
+        .category-title {
+            font-size: 22px;
+            color: #00BCD4;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #FFD700;
+            font-weight: 600;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            margin: 16px 0;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 16px;
+            padding: 16px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:active {
+            transform: scale(0.98);
+        }
+
+        .product-image-wrapper {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #f0f8ff 0%, #e0f7fa 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        .product-image-wrapper img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            padding: 12px;
+        }
+
+        .product-model {
+            font-size: 12px;
+            color: #008B8B;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .product-title {
+            font-size: 18px;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .product-description {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .product-capacity {
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 8px;
+        }
+
+        .product-price {
+            font-size: 24px;
+            color: #FF9800;
+            font-weight: 700;
+            margin: 8px 0;
+        }
+
+        .btn-product {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #00BCD4 0%, #20B2AA 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(0, 188, 212, 0.3);
+            margin-top: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-product:active {
+            transform: scale(0.98);
+        }
+
+        footer {
+            background: linear-gradient(135deg, #008B8B 0%, #00695C 100%);
+            color: white;
+            text-align: center;
+            padding: 32px 16px;
+            margin-top: 48px;
+        }
+
+        footer p {
+            margin: 8px 0;
+            font-size: 14px;
+        }
+
+        @media (min-width: 640px) {
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .products {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .page-title {
+                font-size: 36px;
+            }
+            
+            .category-title {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <img src="logopodhouse.jpg" alt="PodHouseBc Logo">
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="produtos.html">Produtos</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                    <li>
+                        <a href="carrinho.html" class="cart-link">
+                            <span id="cart-icon"></span>
+                            <span id="cart-count">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1 class="page-title">Nossos Produtos</h1>
+        
+        <!-- Ignite V80 -->
+        <div class="category-section">
+            <h2 class="category-title">Ignite V80</h2>
+            <div class="products">
+                <div class="product-card" onclick="window.location.href='produto.html?id=ignite-v80'">
+                    <div class="product-image-wrapper">
+                        <img src="IgniteV80 12ml.jpg" alt="Ignite V80">
+                    </div>
+                    <p class="product-model">Ignite V80</p>
+                    <p class="product-capacity">12ml</p>
+                    <h3 class="product-title">Ignite V80</h3>
+                    <p class="product-description">Sabores: Manga Lima, Maracujá Kiwi, Frutas Cítricas e Menta</p>
+                    <p class="product-price">R$ 104,00</p>
+                    <button class="btn-product" onclick="event.stopPropagation(); window.location.href='produto.html?id=ignite-v80'">
+                        Ver Produto
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ignite V300 -->
+        <div class="category-section">
+            <h2 class="category-title">Ignite V300</h2>
+            <div class="products">
+                <div class="product-card" onclick="window.location.href='produto.html?id=ignite-v300'">
+                    <div class="product-image-wrapper">
+                        <img src="IgniteV300 18ml.jpg" alt="Ignite V300">
+                    </div>
+                    <p class="product-model">Ignite V300</p>
+                    <p class="product-capacity">18ml</p>
+                    <h3 class="product-title">Ignite V300</h3>
+                    <p class="product-description">10 sabores disponíveis</p>
+                    <p class="product-price">R$ 132,00</p>
+                    <button class="btn-product" onclick="event.stopPropagation(); window.location.href='produto.html?id=ignite-v300'">
+                        Ver Produto
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ignite V400 -->
+        <div class="category-section">
+            <h2 class="category-title">Ignite V400</h2>
+            <div class="products">
+                <div class="product-card" onclick="window.location.href='produto.html?id=ignite-v400'">
+                    <div class="product-image-wrapper">
+                        <img src="IgniteV400 18ml.jpg" alt="Ignite V400">
+                    </div>
+                    <p class="product-model">Ignite V400</p>
+                    <p class="product-capacity">18ml</p>
+                    <h3 class="product-title">Ignite V400</h3>
+                    <p class="product-description">4 sabores disponíveis</p>
+                    <p class="product-price">R$ 144,00</p>
+                    <button class="btn-product" onclick="event.stopPropagation(); window.location.href='produto.html?id=ignite-v400'">
+                        Ver Produto
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ignite V155 -->
+        <div class="category-section">
+            <h2 class="category-title">Ignite V155 - Lançamento SlimDesign</h2>
+            <div class="products">
+                <div class="product-card" onclick="window.location.href='produto.html?id=ignite-v155'">
+                    <div class="product-image-wrapper">
+                        <img src="IgniteV155 12ml .jpg" alt="Ignite V155">
+                    </div>
+                    <p class="product-model">Ignite V155</p>
+                    <p class="product-capacity">12ml</p>
+                    <h3 class="product-title">Ignite V155</h3>
+                    <p class="product-description">2 sabores disponíveis</p>
+                    <p class="product-price">R$ 113,00</p>
+                    <button class="btn-product" onclick="event.stopPropagation(); window.location.href='produto.html?id=ignite-v155'">
+                        Ver Produto
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Elfbar 30k -->
+        <div class="category-section">
+            <h2 class="category-title">Elfbar 30k - MetalSlim</h2>
+            <div class="products">
+                <div class="product-card" onclick="window.location.href='produto.html?id=elfbar-30k'">
+                    <div class="product-image-wrapper">
+                        <img src="Elfbar30k 13ml.jpg" alt="Elfbar 30k">
+                    </div>
+                    <p class="product-model">Elfbar 30k</p>
+                    <p class="product-capacity">13ml</p>
+                    <h3 class="product-title">Elfbar 30k</h3>
+                    <p class="product-description">4 sabores disponíveis</p>
+                    <p class="product-price">R$ 121,00</p>
+                    <button class="btn-product" onclick="event.stopPropagation(); window.location.href='produto.html?id=elfbar-30k'">
+                        Ver Produto
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Elfbar 40k -->
+        <div class="category-section">
+            <h2 class="category-title">Elfbar 40k - IceKing</h2>
+            <div class="products">
+                <div class="product-card" onclick="window.location.href='produto.html?id=elfbar-40k'">
+                    <div class="product-image-wrapper">
+                        <img src="Elfbar40k 20ml.jpg" alt="Elfbar 40k">
+                    </div>
+                    <p class="product-model">Elfbar 40k</p>
+                    <p class="product-capacity">20ml</p>
+                    <h3 class="product-title">Elfbar 40k</h3>
+                    <p class="product-description">3 sabores disponíveis</p>
+                    <p class="product-price">R$ 129,00</p>
+                    <button class="btn-product" onclick="event.stopPropagation(); window.location.href='produto.html?id=elfbar-40k'">
+                        Ver Produto
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Elfbar 23k -->
+        <div class="category-section">
+            <h2 class="category-title">Elfbar 23k</h2>
+            <div class="products">
+                <div class="product-card" onclick="window.location.href='produto.html?id=elfbar-23k'">
+                    <div class="product-image-wrapper">
+                        <img src="Elfbar23k 23ml.jpg" alt="Elfbar 23k">
+                    </div>
+                    <p class="product-model">Elfbar 23k</p>
+                    <p class="product-capacity">23ml</p>
+                    <h3 class="product-title">Elfbar 23k</h3>
+                    <p class="product-description">8 sabores disponíveis (R$ 118,00) + 2 sabores (R$ 110,00)</p>
+                    <p class="product-price">A partir de R$ 110,00</p>
+                    <button class="btn-product" onclick="event.stopPropagation(); window.location.href='produto.html?id=elfbar-23k'">
+                        Ver Produto
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- BlackSheep -->
+        <div class="category-section">
+            <h2 class="category-title">BlackSheep - DualTank</h2>
+            <div class="products">
+                <div class="product-card" onclick="window.location.href='produto.html?id=blacksheep'">
+                    <div class="product-image-wrapper">
+                        <img src="BlackSheep 26ml.jpg" alt="BlackSheep">
+                    </div>
+                    <p class="product-model">BlackSheep</p>
+                    <p class="product-capacity">26ml</p>
+                    <h3 class="product-title">BlackSheep</h3>
+                    <p class="product-description">3 sabores disponíveis</p>
+                    <p class="product-price">R$ 140,00</p>
+                    <button class="btn-product" onclick="event.stopPropagation(); window.location.href='produto.html?id=blacksheep'">
+                        Ver Produto
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ignite V55 -->
+        <div class="category-section">
+            <h2 class="category-title">Ignite V55</h2>
+            <div class="products">
+                <div class="product-card" onclick="window.location.href='produto.html?id=ignite-v55'">
+                    <div class="product-image-wrapper">
+                        <img src="IgniteV55.jpg" alt="Ignite V55">
+                    </div>
+                    <p class="product-model">Ignite V55</p>
+                    <h3 class="product-title">Ignite V55</h3>
+                    <p class="product-description">4 sabores disponíveis</p>
+                    <p class="product-price">R$ 99,00</p>
+                    <button class="btn-product" onclick="event.stopPropagation(); window.location.href='produto.html?id=ignite-v55'">
+                        Ver Produto
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 PodHouseBc. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="icons.js"></script>
+    <script src="carrinho.js"></script>
+    <script>
+        // Inserir ícone do carrinho
+        document.getElementById('cart-icon').innerHTML = Icons.cart;
+        
+        // Atualizar contador do carrinho
+        carrinho.atualizarContador();
+    </script>
+</body>
+</html>
